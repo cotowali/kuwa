@@ -13,16 +13,14 @@
 // limitations under the License.
 import kuwa { InnerNode, InnerNodeElement, Token }
 
-const (
-	expr       = 1
-	l_paren    = 2
-	r_paren    = 3
-	add_sub    = 10
-	mul_div    = 11
-	value      = 20
-	op         = 21
-	whitespace = 100
-)
+const expr = 1
+const l_paren = 2
+const r_paren = 3
+const add_sub = 10
+const mul_div = 11
+const value = 20
+const op = 21
+const whitespace = 100
 
 fn test_element() {
 	token := Token.new(value, '123')
