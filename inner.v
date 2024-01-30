@@ -23,7 +23,7 @@ pub fn (elem InnerNodeElement) text() string {
 	}
 }
 
-pub fn (elem InnerNodeElement) text_len() int {
+pub fn (elem InnerNodeElement) text_len() usize {
 	return match elem {
 		InnerNode { elem.text_len() }
 		Token { elem.text_len() }
@@ -32,7 +32,7 @@ pub fn (elem InnerNodeElement) text_len() int {
 
 pub struct InnerNode {
 mut:
-	text_len int
+	text_len usize
 	children []InnerNodeElement
 pub:
 	kind SyntaxKind
@@ -53,7 +53,7 @@ pub fn InnerNode.with_children(kind SyntaxKind, children []InnerNodeElement) Inn
 	return node
 }
 
-pub fn (node InnerNode) text_len() int {
+pub fn (node InnerNode) text_len() usize {
 	return node.text_len
 }
 

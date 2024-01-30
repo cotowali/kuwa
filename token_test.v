@@ -19,5 +19,5 @@ fn test_token() {
 	token := Token.new(kind, text)
 	assert token.kind == kind
 	assert token.text() == text
-	assert token.text_len() == text.len
+	assert int(token.text_len()) == text.len
 }

@@ -31,6 +31,6 @@ pub fn (t Token) text() string {
 	return t.text
 }
 
-pub fn (t Token) text_len() int {
-	return t.text.len
+pub fn (t Token) text_len() usize {
+	return usize(t.text.len)
 }

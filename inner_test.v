@@ -63,7 +63,7 @@ fn test_inner_node() {
 	tree.add_child(Token.new(r_paren, ')'))
 
 	assert tree.text() == tree_text
-	assert tree.text_len() == tree_text.len
+	assert int(tree.text_len()) == tree_text.len
 	assert (tree.children()[1] as InnerNode).children()[0].text() == '4/2'
 
 	assert tree == InnerNode{
