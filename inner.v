@@ -30,6 +30,13 @@ pub fn (elem InnerNodeElement) text_len() usize {
 	}
 }
 
+pub fn (elem InnerNodeElement) children() []InnerNodeElement {
+	return match elem {
+		InnerNode { elem.children() }
+		Token { []InnerNodeElement{} }
+	}
+}
+
 pub struct InnerNode {
 mut:
 	text_len usize

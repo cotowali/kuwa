@@ -37,8 +37,10 @@ fn test_element() {
 
 	assert token_elem.text() == token.text()
 	assert token_elem.text_len() == token.text_len()
+	assert token_elem.children() == []InnerNodeElement{}
 	assert node_elem.text() == node.text()
 	assert node_elem.text_len() == node.text_len()
+	assert node_elem.children() == node.children()
 }
 
 fn test_inner_node() {
@@ -62,7 +64,7 @@ fn test_inner_node() {
 
 	assert tree.text() == tree_text
 	assert int(tree.text_len()) == tree_text.len
-	assert (tree.children()[1] as InnerNode).children()[0].text() == '4/2'
+	assert tree.children()[1].children()[0].text() == '4/2'
 
 	assert tree == InnerNode{
 		kind: expr
