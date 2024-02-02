@@ -31,15 +31,18 @@ pub fn SyntaxNode.new_root(inner InnerNodeElement) SyntaxNode {
 	}
 }
 
-pub fn (node &SyntaxNode) parent() ?&SyntaxNode {
+@[inline]
+pub fn (node SyntaxNode) parent() ?&SyntaxNode {
 	return if isnil(node.parent) { none } else { node.parent }
 }
 
-pub fn (node &SyntaxNode) inner() InnerNodeElement {
+@[inline]
+pub fn (node SyntaxNode) inner() InnerNodeElement {
 	return node.inner
 }
 
-pub fn (node &SyntaxNode) offset() usize {
+@[inlien]
+pub fn (node SyntaxNode) offset() usize {
 	return node.offset
 }
 

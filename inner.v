@@ -60,14 +60,17 @@ pub fn InnerNode.with_children(kind SyntaxKind, children []InnerNodeElement) Inn
 	return node
 }
 
+@[inline]
 pub fn (node InnerNode) text_len() usize {
 	return node.text_len
 }
 
+@[inline]
 pub fn (node InnerNode) text() string {
 	return node.children.map(|child| child.text()).join('')
 }
 
+@[inline]
 pub fn (node InnerNode) children() []InnerNodeElement {
 	return node.children
 }
