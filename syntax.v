@@ -20,6 +20,7 @@ pub type SyntaxKind = int
 pub struct SyntaxNode {
 	parent &SyntaxNode = unsafe { 0 }
 	inner  InnerNodeElement
+	index  usize // index it parent.children
 mut:
 	offset usize
 }
@@ -55,8 +56,21 @@ pub fn (node &SyntaxNode) children() []SyntaxNode {
 			parent: node
 			offset: offset
 			inner: inner
+			index: usize(i)
 		}
 		offset += inner.text_len()
 	}
 	return children
+}
+
+pub fn (node &SyntaxNode) replace_with(new_inner InnerNodeElement) {
+	if parent := node.parent() {
+		mut parent_inner := parent.inner()
+		if mut parent_inner is InnerNode {
+			new_parent := parent_inner.replace_child_at(node.index, new_inner)
+			parent.replace_with(new_parent)
+		} else {
+			panic('unreachable')
+		}
+	}
 }

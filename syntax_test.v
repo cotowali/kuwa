@@ -65,4 +65,9 @@ fn test_syntax() {
 	assert syntax_e1.inner() as InnerNode == inner_e1
 	assert syntax_e1.offset() == 1
 	assert syntax_e1.children().len == 3
+
+	syntax_e1.replace_with(Token.new(value, '10'))
+	new_text := '(10 + 1)'
+	assert root.inner().text() == new_text
+	assert int(root.children().last().offset()) == new_text.len - 1
 }

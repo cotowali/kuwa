@@ -85,3 +85,9 @@ pub fn (mut node InnerNode) add_children(children []InnerNodeElement) {
 		node.add_child(child)
 	}
 }
+
+pub fn (mut node InnerNode) replace_child_at(index usize, new_child InnerNodeElement) InnerNodeElement {
+	node.text_len += new_child.text_len() - node.children[index].text_len()
+	node.children[index] = new_child
+	return node
+}
